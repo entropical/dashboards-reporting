@@ -33,11 +33,14 @@ export const isValidRelativeUrl = (relativeUrl: string) => {
 /**
  * moment.js isValid() API fails to validate time duration, so use regex
  * https://github.com/moment/moment/issues/1805
+ * 
+ * Allowed workspace type URLs (/w/KHwDJ2/)
+ * https://github.com/opensearch-project/dashboards-reporting/issues/546
  **/
 export const regexDuration = /^([-+]?)P(?=\d|T[-+]?\d)(?:([-+]?\d+)Y)?(?:([-+]?\d+)M)?(?:([-+]?\d+)([DW]))?(?:T(?:([-+]?\d+)H)?(?:([-+]?\d+)M)?(?:([-+]?\d+(?:\.\d+)?)S)?)?$/;
 export const regexEmailAddress = /\S+@\S+\.\S+/;
 export const regexReportName = /^[\w\-\s\(\)\[\]\,\_\-+]+$/;
-export const regexRelativeUrl = /^\/(_plugin\/kibana\/|_dashboards\/)?app\/(dashboards|visualize|discover|discoverLegacy|data-explorer\/discover\/?|observability-dashboards|observability-notebooks|notebooks-dashboards\?view=output_only(&security_tenant=.+)?)(\?security_tenant=.+)?#\/(notebooks\/|view\/|edit\/)?[^\/]+$/;
+export const regexRelativeUrl = /^\/(_plugin\/kibana\/|_dashboards\/|w\/\w+\/)?app\/(dashboards|visualize|discover|discoverLegacy|data-explorer\/discover\/?|observability-dashboards|observability-notebooks|notebooks-dashboards\?view=output_only(&security_tenant=.+)?)(\?security_tenant=.+)?#\/(notebooks\/|view\/|edit\/)?[^\/]+$/;
 
 export const validateReport = async (
   client: ILegacyScopedClusterClient,
